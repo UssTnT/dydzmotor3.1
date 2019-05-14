@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie ie6 lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="ie ie7 lt-ie9 lt-ie8"        lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="ie ie8 lt-ie9"               lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="ie ie9"                      lang="en"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-ie">
+<!--<![endif]-->
+
+<head>
+  <!-- Meta-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="wsh">
+  <title>Create Admin - DYD Admin</title>
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]><script src="__STATIC__/js/html5shiv.js"></script><script src="__STATIC__/js/respond.min.js"></script><![endif]-->
+  <!-- Bootstrap CSS-->
+  <link rel="stylesheet" href="__STATIC__/css/bootstrap.css">
+  <!-- Vendor CSS-->
+  <link rel="stylesheet" href="__STATIC__/vendor/fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="__STATIC__/vendor/animo/animate+animo.css">
+  <link rel="stylesheet" href="__STATIC__/vendor/csspinner/csspinner.min.css">
+  <!-- START Page Custom CSS-->
+  <link rel="stylesheet" href="__STATIC__/vendor/chosen/chosen.min.css">
+  <link rel="stylesheet" href="__STATIC__/vendor/bootstrapfileinput/css/fileinput.min.css">
+	<!-- Codemirror -->
+	<link rel="stylesheet" href="__STATIC__/vendor/codemirror/lib/codemirror.css">
+  <!-- END Page Custom CSS-->
+  <!-- App CSS-->
+  <link rel="stylesheet" href="__STATIC__/css/app.css">
+  <!-- Modernizr JS Script-->
+  <script src="__STATIC__/vendor/modernizr/modernizr.js" type="application/javascript"></script>
+  <!-- FastClick for mobiles-->
+  <script src="__STATIC__/vendor/fastclick/fastclick.js" type="application/javascript"></script>
+</head>
+
+<body>
+  <!-- START Main wrapper-->
+  <div class="wrapper">
+    <!-- START Top Navbar-->
+    {include file="public/top-nav"}
+    <!-- END Top Navbar-->
+    <!-- START aside-->
+    {include file="public/sidebar"}
+    <!-- End aside-->
+    <!-- START Main section-->
+    <section class="scroll-content">
+      <!-- START Page content-->
+      <div class="content-wrapper">
+      	<h3>Create Admin
+          <small>Here you can create a admin.</small>
+        </h3>
+        <!-- START row-->
+        <div class="row">
+          <div class="col-md-12">
+            <form action="{:url('/admin/admin/save/')}" method="post" data-parsley-validate="" novalidate="" class="form-horizontal" enctype="multipart/form-data" id="form-area">
+              <!-- START panel-->
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <div class="panel-title"><h4>Admin content</h4></div>
+                </div>
+                <div class="panel-body">
+                  <fieldset>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">UserName</label>
+                      <div class="col-sm-9">
+                        <input class="form-control" type="text" name="username" data-parsley-required="true" data-parsley-maxlength="15" data-parsley-pattern="^[a-zA-Z0-9]{1,15}$" data-parsley-pattern-message="Username can only be Letters or Numbers below 15 digits" maxlength="15">
+                      </div>
+                    </div>
+                  </fieldset>
+                  <fieldset>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Password</label>
+                      <div class="col-sm-9">
+                        <input class="form-control" type="password" name="password" data-parsley-required="true" data-parsley-maxlength="32" data-parsley-minlength="8" maxlength="32">
+                      </div>
+                    </div>
+                  </fieldset>
+                  <fieldset>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Name</label>
+                      <div class="col-sm-9">
+                        <input class="form-control" type="text" name="name" data-parsley-required="true" data-parsley-maxlength="20" maxlength="20">
+                      </div>
+                    </div>
+                  </fieldset>
+                  <fieldset>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Email</label>
+                      <div class="col-sm-9">
+                        <input class="form-control" type="text" name="email" data-parsley-required="true" data-parsley-type="email" data-parsley-maxlength="60" maxlength="60">
+                      </div>
+                    </div>
+                  </fieldset>
+                  <fieldset>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Phone</label>
+                      <div class="col-sm-9">
+                        <input class="form-control" type="text" name="phone" data-parsley-required="true" data-parsley-maxlength="25" maxlength="25">
+                      </div>
+                    </div>
+                  </fieldset>
+                  <fieldset>
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">My Permission</label>
+                      <div class="col-sm-7">
+                        <select class="form-control" name="permission">
+                          {eq name=":session('permission')" value="2"}<option value="1">maintenance manager</option>
+                          {else /}<option value="1">maintenance manager</option>
+                          <option value="2">general manager</option>
+                          <option value="3">super manager</option>{/eq}
+                        </select>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="panel-footer text-center">
+                  <button type="submit" class="btn btn-info">Run Save</button>
+                </div>
+              </div>
+              <!-- END panel-->
+            </form>
+          </div>
+        </div>
+        <!-- END row-->
+      </div>
+      <!-- END Page content-->
+    </section>
+    <!-- END Main section-->
+  </div>
+  <!-- END Main wrapper-->
+  <!-- START Scripts-->
+  <!-- Main vendor Scripts-->
+  <script src="__STATIC__/vendor/jquery/jquery.min.js"></script>
+  <script src="__STATIC__/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!-- Plugins-->
+  <script src="__STATIC__/vendor/chosen/chosen.jquery.min.js"></script>
+  <script src="__STATIC__/vendor/slider/js/bootstrap-slider.js"></script>
+  <script src="__STATIC__/vendor/bootstrapfileinput/js/fileinput.min.js"></script>
+  <!-- <script src="__STATIC__/vendor/bootstrapfileinput/js/fileinput_locale_zh.js"></script> -->
+  <!-- Animo-->
+  <script src="__STATIC__/vendor/animo/animo.min.js"></script>
+  <!-- Slimscroll-->
+  <script src="__STATIC__/vendor/slimscroll/jquery.slimscroll.min.js"></script>
+  <!-- Store + JSON-->
+  <script src="__STATIC__/vendor/store/store+json2.min.js"></script>
+  <!-- ScreenFull-->
+  <script src="__STATIC__/vendor/screenfull/screenfull.min.js"></script>
+  <!-- START Page Custom Script-->
+  <!-- Markdown Area Codemirror and dependencies -->
+  <script src="__STATIC__/vendor/codemirror/lib/codemirror.js"></script>
+  <script src="__STATIC__/vendor/codemirror/addon/mode/overlay.js"></script>
+  <script src="__STATIC__/vendor/codemirror/mode/markdown/markdown.js"></script>
+  <script src="__STATIC__/vendor/codemirror/mode/xml/xml.js"></script>
+  <script src="__STATIC__/vendor/codemirror/mode/gfm/gfm.js"></script>
+  <script src="__STATIC__/vendor/marked/marked.js"></script>
+  <!-- Form Validation-->
+  <script src="__STATIC__/vendor/parsley/parsley.min.js"></script>
+  <!-- END Page Custom Script-->
+  <!-- App Main-->
+  <script src="__STATIC__/js/app.js"></script>
+  <!-- END Scripts-->
+</body>
+
+</html>

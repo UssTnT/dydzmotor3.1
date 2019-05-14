@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Small AC/DC Motors &amp; Gear Motors | DYD MOTOR</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="keywords" content="DYD MOTOR, DONGZHENG MOTOR - DC gear motors, AC gear motors, Planetary gear motors, Parallel shaft gearmotors, Right angle gear motors, Spur Gear Motors, Worm Gear Motors, In-line Gear Motors, DC motors, gearmotors, geared motors">
+  <meta name="description" content="DYD MOTOR, DONGZHENG MOTOR - DC Geared motor, DC Brush Motor, 4 Pole PM DC Motor, DC Planetary Gear Motor, Worm gear motor, Right angle gear motor, Spur gear motor, Parallel shaft gearmotor, AC Induction & Reversible Motor, AC Induction Gearmotor, Brushless DC Motor, Automatic Gate/Door Motor, Truck Tarp Motor, Solar Tracking Motor, Swimming Pool Cleaner Motors, Pool Cover Motor, Permanent Magnet, Motor Housing, Motor Shaft.">
+  <link rel="icon" type="image/x-icon" href="__STATIC__/img/favicon.png">
+  <link rel="stylesheet" href="__STATIC__/css/bootstrap.min.css">
+  <link rel="stylesheet" href="__STATIC__/css/swiper.min.css">
+  <link rel="stylesheet" href="__STATIC__/css/animate.min.css">
+  <link rel="stylesheet" href="__STATIC__/css/spop.min.css" />
+  <link rel="stylesheet" href="__STATIC__/css/public.css">
+  <link rel="stylesheet" href="__STATIC__/css/font-awesome.min.css">
+  <link rel="stylesheet" href="__STATIC__/css/style.css">
+</head>
+
+<body>
+  {include file="public/header"}
+  <section class="section-bg">
+    <div class="banner-bg">
+      <img src="__STATIC__/img/3f4157ecd100ae3dc364b8fe29d52162.jpg" alt="">
+      <div class="banner-inner">
+        <h1 class="h-title s-title wow fadeInDown" data-wow-delay="0.3s" style="visibility: hidden;">
+          <span>Contact Us</span>
+          <small>Fell free to get in touch with us ...</small>
+        </h1>
+      </div>
+    </div>
+    <div class="container container-box">
+      <div class="row">
+        <div class="col-md-9 contact-box wow bounceInLeft" style="visibility: hidden;">
+          <form action="/send" role="form" method="post" data-parsley-validate novalidate autocomplete="off">
+            <div class="panel">
+              <div class="panel-heading">
+                <div class="panel-title">
+                  <h4>SEND US A MESSAGE</h4>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                    <input type="text" class="form-control" name="iName" required placeholder="Name *">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-institution fa-fw"></i></span>
+                    <input type="text" class="form-control" name="iCompany" placeholder="Company">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></span>
+                    <input type="email" class="form-control" name="iEmail" data-parsley-type="email" placeholder="Email address">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-phone fa-fw"></i></span>
+                    <input type="text" class="form-control" name="iTel" required placeholder="Telephone *">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-link fa-fw"></i></span>
+                    <input type="text" class="form-control" name="iWeb" placeholder="Website" data-parsley-type="url">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-location-arrow fa-fw"></i></span>
+                    <input type="text" class="form-control" name="iAdd" placeholder="Address">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-comments-o fa-fw"></i></span>
+                    <textarea class="form-control" name="iMsg" required placeholder="Message *"></textarea>
+                  </div>
+                </div>
+                <div class="required">* Required fields</div>
+              </div>
+              <div class="panel-footer text-center">
+                <button type="submit" class="btn btn-info">SEND</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-4 add-box wow bounceInRight" style="visibility: hidden;">
+          <ul class="add-inner">
+            {foreach $rows as $row}
+            <li class="col-md-12">
+              <span class="icon-add"><i class="fa fa-map-marker fa-fw"></i></span>
+              <dl class="easy-text">
+                <dt>{$row.cName}</dt>
+                <dd>Add : {$row.cAdd}</dd>
+                <dd>P.C : {$row.cPc}</dd>
+                <dd>Tel : {$row.cTel}</dd>
+                <dd>Fax : {$row.cFax}</dd>
+                <dd>Email : {$row.cEmail}</dd>
+              </dl>
+            </li>
+            {/foreach}
+          </ul>
+        </div>
+        {if isset($type)}
+        {eq name='type' value='1'}<a id="btn-spop-s" class="info-spop">Top center</a>{/eq}
+        {eq name='type' value='2'}<a id="btn-spop-r" class="info-spop">Top center</a>{/eq}
+        {/if}
+      </div>
+    </div>
+  </section>
+  
+  {include file="public/footer"}
+  {include file="public/gotopbtn"}
+  
+  <script src="__STATIC__/js/jquery.min.js"></script>
+  <script src="__STATIC__/js/bootstrap.min.js"></script>
+  <script src="__STATIC__/js/swiper.min.js"></script>
+  <script src="__STATIC__/js/spop.min.js"></script>
+  <script src="__STATIC__/js/wow.min.js"></script>
+  <script src="__STATIC__/js/i18n/jquery.i18n.properties.js"></script>
+  <script src="__STATIC__/js/i18n/language.js"></script>
+  <!-- Form Validation-->
+  <script src="__STATIC__/js/parsley/parsley.min.js"></script>
+  <script src="__STATIC__/js/main.js"></script>
+  <!--[if lt IE 9]>
+    <script src="__STATIC__/js/html5shiv.min.js"></script>
+    <script src="__STATIC__/js/respond.min.js"></script>
+  <![endif]-->
+</body>
+
+</html>

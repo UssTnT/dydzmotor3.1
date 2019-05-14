@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie ie6 lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="ie ie7 lt-ie9 lt-ie8"        lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="ie ie8 lt-ie9"               lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="ie ie9"                      lang="en"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-ie">
+<!--<![endif]-->
+
+<head>
+  <!-- Meta-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="wsh">
+  <title>Admin - DYD Admin</title>
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]><script src="__STATIC__/js/html5shiv.js"></script><script src="__STATIC__/js/respond.min.js"></script><![endif]-->
+  <!-- Bootstrap CSS-->
+  <link rel="stylesheet" href="__STATIC__/css/bootstrap.css">
+  <!-- Vendor CSS-->
+  <link rel="stylesheet" href="__STATIC__/vendor/fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="__STATIC__/vendor/animo/animate+animo.css">
+  <link rel="stylesheet" href="__STATIC__/vendor/csspinner/csspinner.min.css">
+  <!-- START Page Custom CSS-->
+  <!-- END Page Custom CSS-->
+  <!-- App CSS-->
+  <link rel="stylesheet" href="__STATIC__/css/app.css">
+  <!-- Modernizr JS Script-->
+  <script src="__STATIC__/vendor/modernizr/modernizr.js" type="application/javascript"></script>
+  <!-- FastClick for mobiles-->
+  <script src="__STATIC__/vendor/fastclick/fastclick.js" type="application/javascript"></script>
+</head>
+
+<body>
+  <!-- START Main wrapper-->
+  <div class="wrapper">
+    <!-- START Top Navbar-->
+    {include file="public/top-nav"}
+    <!-- END Top Navbar-->
+    <!-- START aside-->
+    {include file="public/sidebar"}
+    <!-- End aside-->
+    <!-- START Main section-->
+    <section class="scroll-content">
+      <!-- START Page content-->
+      <div class="content-wrapper">
+        <h3>Admin Management
+          <small>(read, update).</small>
+        </h3>
+        <div class="row">
+          <div class="col-lg-12">
+            <!-- START well-->
+            <div class="well admin-view" id="admin-view">
+              <h4>Basic Information&nbsp;<small>&nbsp;( Username : {$row.username} )</small>
+                <input type="hidden" name="username" value="{$row.username}">
+                <a href="javascript:void(0);" class="btn btn-labeled btn-primary btn-pwd-edit"><i class="fa fa-edit"></i> Edit Pwd </a>
+                <a href="javascript:void(0);" class="btn btn-labeled btn-primary btn-info-edit"><i class="fa fa-edit"></i> Edit Info </a>
+                <a href="javascript:void(0);" class="btn btn-labeled btn-primary btn-basic-save"><i class="fa fa-save"></i> Save </a>
+                <a href="javascript:void(0);" class="btn btn-labeled btn-primary btn-pwd-save"><i class="fa fa-save"></i> Save </a>
+                <a href="javascript:void(0);" class="btn btn-labeled btn-info btn-info-cancel"><i class="fa fa-arrow-left"></i> Cancel </a>
+              </h4>
+              <hr>
+              <div class="basic-info clearfix">
+                <dl>
+                  <dt class="col-sm-3">My Name</dt>
+                  <dd class="col-sm-9 name">{$row.name}</dd>
+                </dl>
+                <dl>
+                  <dt class="col-sm-3">My Email</dt>
+                  <dd class="col-sm-9 email">{$row.email}</dd>
+                </dl>
+                <dl>
+                  <dt class="col-sm-3">My Phone</dt>
+                  <dd class="col-sm-9 phone">{$row.phone}</dd>
+                </dl>
+                <dl>
+                  <dt class="col-sm-3">My Permission</dt>
+                  <dd class="col-sm-9 permission">{switch name="$row.permission"}{case value="1"}maintenance manager{/case}{case value="2"}general manager{/case}{default /}super manager{/switch}</dd>
+                </dl>
+              </div>
+              <div class="edit-box edit-basic clearfix">
+                <form id="edit-basic" class="form-horizontal" data-parsley-validate="" novalidate="" method="post">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">My Name</label>
+                    <div class="col-sm-7">
+                      <input class="form-control" type="text" name="name" value="{$row.name}" data-parsley-required="true" data-parsley-trigger="blur" data-parsley-maxlength="20" maxlength="20">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">My Email</label>
+                    <div class="col-sm-7">
+                      <input class="form-control" type="text" name="email" value="{$row.email}" data-parsley-required="true" data-parsley-trigger="blur" data-parsley-type="email" data-parsley-maxlength="60" maxlength="60">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">My phone</label>
+                    <div class="col-sm-7">
+                      <input class="form-control" type="text" name="phone" value="{$row.phone}" data-parsley-required="true" data-parsley-trigger="blur" data-parsley-maxlength="25" maxlength="25">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    {if $row.permission == 3}<label class="col-sm-3 control-label">My Permission</label>
+                    <div class="col-sm-7">
+                      <select class="form-control" name="permission">
+                        <option value="1"{if $row->permission eq 1} selected{/if}>maintenance manager</option>
+                        <option value="2"{if $row->permission eq 2} selected{/if}>general manager</option>
+                        <option value="3"{if $row->permission eq 3} selected{/if}>super manager</option>
+                      </select>
+                    </div>{/if}
+                  </div>
+                </form>
+              </div>
+              <div class="edit-box edit-pwd clearfix">
+                <form id="edit-pwd" class="form-horizontal" data-parsley-validate="" novalidate="" method="post">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Original Password</label>
+                    <div class="col-sm-7">
+                      <input class="form-control" type="password" name="oldpwd" data-parsley-trigger="blur" data-parsley-required="true" data-parsley-minlength="8" maxlength="32">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">New Password</label>
+                    <div class="col-sm-7">
+                      <input class="form-control pwd" type="password" name="newpwd" data-parsley-trigger="blur" data-parsley-required="true" data-parsley-minlength="8" maxlength="32">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Retype Password</label>
+                    <div class="col-sm-7">
+                      <input class="form-control pwd" type="password" name="rtppwd" data-parsley-trigger="blur" data-parsley-required="true" data-parsley-minlength="8" maxlength="32" data-parsley-equalto=".pwd">
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- END well-->
+          </div>
+        </div>
+      </div>
+      <!-- END Page content-->
+    </section>
+    <!-- END Main section-->
+  </div>
+  <!-- END Main wrapper-->
+  <!-- START Scripts-->
+  <!-- Main vendor Scripts-->
+  <script src="__STATIC__/vendor/jquery/jquery.min.js"></script>
+  <script src="__STATIC__/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!-- Plugins-->
+  <script src="__STATIC__/vendor/chosen/chosen.jquery.min.js"></script>
+  <script src="__STATIC__/vendor/slider/js/bootstrap-slider.js"></script>
+  <script src="__STATIC__/vendor/filestyle/bootstrap-filestyle.min.js"></script>
+  <!-- Animo-->
+  <script src="__STATIC__/vendor/animo/animo.min.js"></script>
+  <!-- Slimscroll-->
+  <script src="__STATIC__/vendor/slimscroll/jquery.slimscroll.min.js"></script>
+  <!-- Store + JSON-->
+  <script src="__STATIC__/vendor/store/store+json2.min.js"></script>
+  <!-- ScreenFull-->
+  <script src="__STATIC__/vendor/screenfull/screenfull.min.js"></script>
+  <!-- Form Validation-->
+  <script src="__STATIC__/js/parsley/parsley.min.js"></script>
+  <!-- END Page Custom Script-->
+  <!-- App Main-->
+  <script src="__STATIC__/js/app.js"></script>
+  <!-- END Scripts-->
+</body>
+
+</html>

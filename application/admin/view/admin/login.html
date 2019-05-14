@@ -1,0 +1,567 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DYD - Login</title>
+  <link rel="icon" type="image/x-icon" href="__STATIC__/img/favicon.png">
+  <link rel="stylesheet" href="__STATIC__/css/normalize.css">
+  <link rel="stylesheet" href="__STATIC__/css/login.css">
+  <link rel="stylesheet" href="__STATIC__/css/sign-up-login.css">
+  <link rel="stylesheet" href="__STATIC__/css/font-awesome.min.css">
+  <link rel="stylesheet" href="__STATIC__/css/inputeffect.css" />
+  <link rel="stylesheet" href="__STATIC__/css/tooltips.css" />
+  <link rel="stylesheet" href="__STATIC__/css/spop.min.css" />
+  <script src="__STATIC__/js/jquery.min.js"></script>
+  <script src="__STATIC__/js/jquery.pure.tooltips.js"></script>
+  <script src="__STATIC__/js/spop.min.js"></script>
+</head>
+
+<body>
+  <div id="login">
+    <input id="tab-1" type="radio" name="tab" class="sign-in hidden" checked />
+    <input id="tab-2" type="radio" name="tab" class="sign-up hidden" />
+    <input id="tab-3" type="radio" name="tab" class="sign-out hidden" />
+    <div class="wrapper">
+      <h1 class="login-title">DYD ADMIN</h1>
+      <div class="login sign-in-htm">
+        <form class="container offset1 loginform">
+          <div id="owl-login" class="login-owl">
+            <div class="hand"></div>
+            <div class="hand hand-r"></div>
+            <div class="arms">
+              <div class="arm"></div>
+              <div class="arm arm-r"></div>
+            </div>
+          </div>
+          <div class="pad input-container">
+            <section class="content">
+              <span class="input input--hideo">
+                <input class="input__field input__field--hideo" type="text" id="login-username" autocomplete="off" placeholder="Username" tabindex="1" autocomplete='off' />
+                <label class="input__label input__label--hideo" for="login-username">
+                  <i class="fa fa-fw fa-user icon icon--hideo"></i>
+                  <span class="input__label-content input__label-content--hideo"></span>
+                </label>
+              </span>
+              <span class="input input--hideo">
+                <input class="input__field input__field--hideo" type="password" id="login-password" placeholder="Password" tabindex="2" autocomplete='off' />
+                <label class="input__label input__label--hideo" for="login-password">
+                  <i class="fa fa-fw fa-lock icon icon--hideo"></i>
+                  <span class="input__label-content input__label-content--hideo"></span>
+                </label>
+              </span>
+              <span class="input input--hideo input--verify_code">
+                <input class="input__field input__field--hideo" type="text" id="login-verify-code" autocomplete="off" placeholder="Captcha" tabindex="3" maxlength="4" autocomplete='off' />
+                <label class="input__label input__label--hideo" for="login-verify-code">
+                  <i class="fa fa-fw fa-bell-o icon icon--hideo"></i>
+                  <span class="input__label-content input__label-content--hideo"></span>
+                </label>
+              </span>
+              <img class="verify-code-img" id="login-verify-code-img" src="{:captcha_src()}" alt="captcha" />
+            </section>
+          </div>
+          <div class="form-actions">
+            <a tabindex="4" class="btn pull-left btn-link text-muted" id="goForgetBtn">Forgot your password?</a>
+            <input class="btn btn-primary" type="button" tabindex="3" id="loginBtn" value="Login" />
+          </div>
+        </form>
+        <div class="copyright">
+          <p>2019 &copy; ADMIN DDD</p>
+        </div>
+      </div>
+      <div class="login sign-out-htm">
+        <form action="#" method="post" class="container offset1 loginform">
+          <div id="owl-login" class="forget-owl">
+            <div class="hand"></div>
+            <div class="hand hand-r"></div>
+            <div class="arms">
+              <div class="arm"></div>
+              <div class="arm arm-r"></div>
+            </div>
+          </div>
+          <div class="pad input-container">
+            <section class="content">
+              <span class="input input--hideo">
+                <input class="input__field input__field--hideo" type="text" id="forget-username" autocomplete="off" placeholder="Username" autocomplete='off' />
+                <label class="input__label input__label--hideo" for="forget-username">
+                  <i class="fa fa-fw fa-user icon icon--hideo"></i>
+                  <span class="input__label-content input__label-content--hideo"></span>
+                </label>
+              </span>
+              <span class="input input--hideo">
+                <label class="input__label input__label--hideo" for="forget-code">
+                  <i class="fa fa-fw fa-wifi icon icon--hideo"></i>
+                  <span class="input__label-content input__label-content--hideo"></span>
+                </label>
+              </span>
+              <span class="input input--hideo">
+                <input class="input__field input__field--hideo" type="password" id="forget-password" placeholder="New Password" autocomplete='off' />
+                <label class="input__label input__label--hideo" for="forget-password">
+                  <i class="fa fa-fw fa-lock icon icon--hideo"></i>
+                  <span class="input__label-content input__label-content--hideo"></span>
+                </label>
+              </span>
+            </section>
+          </div>
+          <div class="form-actions">
+            <a class="btn pull-left btn-link text-muted goLoginBtn">Back</a>
+            <input class="btn btn-primary" type="button" id="resetBtn" value="Reset" />
+          </div>
+        </form>
+        <div class="copyright">
+          <p>2019 &copy; ADMIN DDD</p>
+        </div>
+      </div>
+      <div class="login sign-up-htm">
+        <form action="#" method="post" class="container offset1 loginform">
+          <div id="owl-login" class="register-owl">
+            <div class="hand"></div>
+            <div class="hand hand-r"></div>
+            <div class="arms">
+              <div class="arm"></div>
+              <div class="arm arm-r"></div>
+            </div>
+          </div>
+          <div class="pad input-container">
+            <section class="content">
+              <span class="input input--hideo">
+                <input class="input__field input__field--hideo" type="text" id="register-username" autocomplete="off" placeholder="Username" maxlength="15" autocomplete='off' />
+                <label class="input__label input__label--hideo" for="register-username">
+                  <i class="fa fa-fw fa-user icon icon--hideo"></i>
+                  <span class="input__label-content input__label-content--hideo"></span>
+                </label>
+              </span>
+              <span class="input input--hideo">
+                <input class="input__field input__field--hideo" type="password" id="register-password" placeholder="Password" maxlength="15" autocomplete='off' />
+                <label class="input__label input__label--hideo" for="register-password">
+                  <i class="fa fa-fw fa-lock icon icon--hideo"></i>
+                  <span class="input__label-content input__label-content--hideo"></span>
+                </label>
+              </span>
+              <span class="input input--hideo">
+                <input class="input__field input__field--hideo" type="password" id="register-repassword" placeholder="Retype Password" maxlength="15" autocomplete='off' />
+                <label class="input__label input__label--hideo" for="register-repassword">
+                  <i class="fa fa-fw fa-lock icon icon--hideo"></i>
+                  <span class="input__label-content input__label-content--hideo"></span>
+                </label>
+              </span>
+              <span class="input input--hideo">
+                <label class="input__label input__label--hideo" for="register-code">
+                  <i class="fa fa-fw fa-wifi icon icon--hideo"></i>
+                  <span class="input__label-content input__label-content--hideo"></span>
+                </label>
+              </span>
+            </section>
+          </div>
+          <div class="form-actions">
+            <a class="btn pull-left btn-link text-muted goLoginBtn">Back</a>
+            <input class="btn btn-primary" type="button" id="registerBtn" value="Sign Up" />
+          </div>
+        </form>
+        <div class="copyright">
+          <p>2019 &copy; ADMIN DDD</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  $(function() {
+    $('#login #login-password').focus(function() {
+      $('.login-owl').addClass('password');
+    }).blur(function() {
+      $('.login-owl').removeClass('password');
+    });
+    $('#login #register-password').focus(function() {
+      $('.register-owl').addClass('password');
+    }).blur(function() {
+      $('.register-owl').removeClass('password');
+    });
+    $('#login #register-repassword').focus(function() {
+      $('.register-owl').addClass('password');
+    }).blur(function() {
+      $('.register-owl').removeClass('password');
+    });
+    $('#login #forget-password').focus(function() {
+      $('.forget-owl').addClass('password');
+    }).blur(function() {
+      $('.forget-owl').removeClass('password');
+    });
+    $('.goLoginBtn').on('click', goto_login);
+    $('#goForgetBtn').on('click', goto_forget);
+    $('#registerBtn').on('click', register);
+    $('#loginBtn').on('click', login);
+    $("#login-verify-code-img").on('click', get_captcha);
+    $('#resetBtn').on('click', reset);
+  });
+  
+  function get_captcha(){
+    $(this).attr('src','{:captcha_src()}?id=' + Math.random());
+  }
+
+  function goto_login(){
+    $("#login-username").val("");
+    $("#login-password").val("");
+    $("#tab-1").prop("checked",true);
+  }
+
+  function goto_forget(){
+    $("#forget-username").val("");
+    $("#forget-password").val("");
+    $("#forget-code").val("");
+    $("#tab-3").prop("checked",true);
+  }
+
+  function login() { //登录
+    let username = $("#login-username").val(),
+    password = $("#login-password").val(),
+    verifycode = $("#login-verify-code").val(),
+    validatecode = null;
+    //判断用户名密码是否为空
+    if(username == ""){
+      $.pt({
+        target: $("#login-username"),
+        position: 'r',
+        align: 't',
+        width: 'auto',
+        height: 'auto',
+        content:"用户名不能为空"
+      });
+      return;
+    }
+    if(password == ""){
+      $.pt({
+        target: $("#login-password"),
+        position: 'r',
+        align: 't',
+        width: 'auto',
+        height: 'auto',
+        content:"密码不能为空"
+      });
+      return;
+    }
+    if(verifycode == ""){
+      $.pt({
+        target: $("#login-verify-code-img"),
+        position: 'r',
+        align: 't',
+        width: 'auto',
+        height: 'auto',
+        content:"验证码不能为空"
+      });
+      return;
+    }
+    //用户名只能是15位以下的字母或数字
+    let regExp = new RegExp("^[a-zA-Z0-9]{1,15}$");
+      if(!regExp.test(username)){
+      $.pt({
+        target: $("#login-username"),
+        position: 'r',
+        align: 't',
+        width: 'auto',
+        height: 'auto',
+        content:"用户名必须为15位以下的字母或数字"
+      });
+      return;
+    }
+    //判断用户名或密码及验证码是否正确
+    $.ajax({
+      type: 'post',
+      url: "{:url('admin/logging')}",    
+      dataType: 'json',
+      data: {
+        'username': username,
+        'password': password,
+        'captcha': verifycode
+      },
+      success: function(data){
+        //console.log(data);
+        if (data.type == '0') {
+          spop({
+            template: '<h4 class="spop-title">Verify successful! </h4>You will be logging in in 3 seconds.',
+            position: 'top-center',
+            style: 'success',
+            autoclose: 3000,
+            onOpen : function(){
+              let second = 2;
+              let showPop = setInterval(function(){
+                if(second == 0){
+                  clearInterval(showPop);
+                }
+                $('.spop-body').html('<h4 class="spop-title">Verify successful! </h4>You will be logging in in '+second+' seconds.');
+                second--;
+              }, 1000);
+            },
+            onClose : function(){
+              window.location = data.msg;
+            }
+          });
+        } else if(data.type == '1') {
+          spop({
+            template: '<h4 class="spop-title">Validation failed！ </h4>'+data.msg,
+            position: 'top-center',
+            style: 'error',
+            autoclose: 3000,
+            onClose : function(){
+              $('#login-password').focus();
+              $("#login-verify-code-img").click();
+              $("#login-password").val("");
+              $('#login-verify-code').val("");
+            }
+          });
+        } else {
+          spop({
+            template: '<h4 class="spop-title">Validation failed！ </h4>'+data.msg,
+            position: 'top-center',
+            style: 'warning',
+            autoclose: 3000,
+            onClose : function(){
+              $('#login-verify-code').focus();
+              $("#login-verify-code-img").click();
+              $('#login-verify-code').val("");
+            }
+          });
+        }
+      },
+      error: function(data){ //抛出异常
+        alert(data);
+      }
+    });
+    /*if(verifycode != show_num.join("")){
+      $.pt({
+        target: $("#login-verify-code-img"),
+        position: 'r',
+        align: 't',
+        width: 'auto',
+        height: 'auto',
+        content:"验证码不正确"
+      });
+      return;
+    }*/
+    
+  }
+
+  //注册
+  function register(){
+    let username = $("#register-username").val(),
+    password = $("#register-password").val(),
+    repassword = $("#register-repassword").val(),
+    code = $("#register-code").val(),
+    flag = false,
+    validatecode = null;
+    //判断用户名密码是否为空
+    if(username == ""){
+      $.pt({
+        target: $("#register-username"),
+        position: 'r',
+        align: 't',
+        width: 'auto',
+        height: 'auto',
+        content:"用户名不能为空"
+      });
+      flag = true;
+    }
+    if(password == ""){
+      $.pt({
+        target: $("#register-password"),
+        position: 'r',
+        align: 't',
+        width: 'auto',
+        height: 'auto',
+        content:"密码不能为空"
+      });
+      flag = true;
+    } else{
+      if(password != repassword){
+      $.pt({
+        target: $("#register-repassword"),
+        position: 'r',
+        align: 't',
+        width: 'auto',
+        height: 'auto',
+        content:"两次输入的密码不一致"
+      });
+      flag = true;
+    }
+    }
+    //用户名只能是15位以下的字母或数字
+    let regExp = new RegExp("^[a-zA-Z0-9]{1,15}$");
+    if(!regExp.test(username)){
+      $.pt({
+        target: $("#register-username"),
+        position: 'r',
+        align: 't',
+        width: 'auto',
+        height: 'auto',
+        content:"用户名必须为15位以下的字母或数字"
+      });
+      flag = true;
+    }
+    //检查用户名是否已经存在
+    //调后台代码检查用户名是否已经被注册
+
+    //检查注册码是否正确
+    //调后台方法检查注册码，这里写死为123456
+    if(code != '123456'){
+      $.pt({
+        target: $("#register-code"),
+        position: 'r',
+        align: 't',
+        width: 'auto',
+        height: 'auto',
+        content:"注册码不正确"
+      });
+      flag = true;
+    }
+
+    if(flag){
+      return false;
+    } else{ //注册
+      spop({      
+        template: '<h4 class="spop-title">注册成功</h4>即将于3秒后返回登录',
+        position: 'top-center',
+        style: 'success',
+        autoclose: 3000,
+        onOpen : function(){
+          let second = 2;
+          let showPop = setInterval(function(){
+            if(second == 0){
+              clearInterval(showPop);
+            }
+            $('.spop-body').html('<h4 class="spop-title">注册成功</h4>即将于'+second+'秒后返回登录');
+            second--;
+          }, 1000);
+        },
+        onClose : function(){
+          goto_login();
+        }
+      });
+      return false;
+    }
+  }
+
+  //重置密码
+  function reset(){
+    let username = $("#forget-username").val(),
+    password = $("#forget-password").val(),
+    //code = $("#forget-code").val(),
+    flag = false,
+    validatecode = null;
+    //判断用户名密码是否为空
+    if(username == ""){
+      $.pt({
+        target: $("#forget-username"),
+        position: 'r',
+        align: 't',
+        width: 'auto',
+        height: 'auto',
+        content:"用户名不能为空"
+      });
+      flag = true;
+    }
+    if(password == ""){
+      $.pt({
+        target: $("#forget-password"),
+        position: 'r',
+        align: 't',
+        width: 'auto',
+        height: 'auto',
+        content:"密码不能为空"
+      });
+      flag = true;
+    }
+    if(password.length < 8){
+      $.pt({
+        target: $("#forget-password"),
+        position: 'r',
+        align: 't',
+        width: 'auto',
+        height: 'auto',
+        content:"密码长度至少为8位"
+      });
+      flag = true;
+    }
+    //用户名只能是15位以下的字母或数字
+    let regExp = new RegExp("^[a-zA-Z0-9]{1,15}$");
+    if(!regExp.test(username)){
+      $.pt({
+        target: $("#forget-username"),
+        position: 'r',
+        align: 't',
+        width: 'auto',
+        height: 'auto',
+        content:"用户名必须为15位以下的字母或数字"
+      });
+      flag = true;
+    }
+    
+
+    //检查注册码是否正确
+    /*if(code != '123456'){
+      $.pt({
+        target: $("#forget-code"),
+        position: 'r',
+        align: 't',
+        width: 'auto',
+        height: 'auto',
+        content:"注册码不正确"
+      });
+      flag = true;
+    }*/
+
+    //检查用户名是否存在
+    //调后台方法
+    if(flag){
+      return false;
+    } else{ //重置密码
+      $.ajax({
+        type: 'post',
+        url: "{:url('admin/edit')}",    
+        dataType: 'json',
+        data: {
+          'username': username,
+          'password': password
+        },
+        success: function(data){
+          if (data.type == '0') {
+            spop({      
+              template: '<h4 class="spop-title">Password reset successful！ </h4>You will return to login in 3 seconds',
+              position: 'top-center',
+              style: 'success',
+              autoclose: 3000,
+              onOpen : function(){
+                let second = 2;
+                let showPop = setInterval(function(){
+                if(second == 0){
+                  clearInterval(showPop);
+                }
+                $('.spop-body').html('<h4 class="spop-title">Password reset successful！ </h4>You will return to login in '+second+' seconds');
+                second--;
+                }, 1000);
+              },
+              onClose : function(){
+                goto_login();
+              }
+            });
+          } else {
+            spop({
+              template: '<h4 class="spop-title">Password reset failed！ </h4>'+data.msg,
+              position: 'top-center',
+              style: 'warning',
+              autoclose: 3000,
+              onClose : function(){
+                $('#forget-username').focus();
+                $('#forget-password').val("");
+              }
+            });
+          }
+        },
+        error: function(data){ //抛出异常
+          alert(data);
+        }
+      });
+    }
+  }
+</script>
+</html>

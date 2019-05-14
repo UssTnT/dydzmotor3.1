@@ -1,0 +1,75 @@
+<aside class="aside">
+	  <!-- START Sidebar (left)-->
+	  <nav class="sidebar">
+	    <ul class="nav">
+	      <!-- START Menu-->
+	      <li class="{eq name=':request()->controller()' value='Index'}active{/eq}">
+	        <a href="/admin/index" title="Dashboard" data-toggle="" class="no-submenu">
+	          <em class="fa fa-home"></em>
+	          <span class="item-text">Dashboard</span>
+	        </a>
+	      </li>
+	      {between name=":session('permission')" value="2,3"}<li class="{eq name=':request()->controller()' value='Admin'}active{/eq}">
+	        <a href="/admin/info" title="Dashboard" data-toggle="" class="no-submenu">
+	          <em class="fa fa-user-circle"></em>
+	          <span class="item-text">Admin</span>
+	        </a>
+	      </li>{/between}
+	      {in name=":session('permission')" value="1,3"}<li class="{if condition="in_array(request()->controller(),array('Product', 'News', 'About', 'Contact', 'Job', 'Facility', 'Solution'))"}active{/if}">
+	        <a href="javascript:;" title="Pages" data-toggle="collapse-next" class="has-submenu {if condition="in_array(request()->controller(),array('Product', 'News', 'About', 'Contact', 'Job', 'Facility', 'Solution'))"}open{/if}">
+	          <em class="fa fa-briefcase"></em>
+	          <span class="item-text">Pages</span>
+	          <i class="arrow fa fa-angle-left" aria-hidden="true"></i>
+	        </a>
+	        <!-- START SubMenu item-->
+	        <ul class="nav collapse {if condition="in_array(request()->controller(),array('Product', 'News', 'About', 'Contact', 'Job', 'Facility', 'Solution'))"}in{/if}">
+	          <li class="{eq name=':request()->controller()' value='Product'}active{/eq}">
+	            <a href="/admin/product" title="products" data-toggle="" class="no-submenu">
+	              <em class="fa fa-cogs"></em>
+	              <span class="item-text">Products</span>
+	            </a>
+	          </li>
+	          <li class="{eq name=':request()->controller()' value='News'}active{/eq}">
+	            <a href="/admin/news" title="news" data-toggle="" class="no-submenu">
+	              <em class="fa fa-coffee"></em>
+	              <span class="item-text">News</span>
+	            </a>
+	          </li>
+	          <li class="{eq name=':request()->controller()' value='About'}active{/eq}">
+	            <a href="/admin/about" title="about Us" data-toggle="" class="no-submenu">
+	              <em class="fa fa-group"></em>
+	              <span class="item-text">About Us</span>
+	            </a>
+	          </li>
+	          <li class="{eq name=':request()->controller()' value='Contact'}active{/eq}">
+	            <a href="/admin/contact" title="contact Us" data-toggle="" class="no-submenu">
+	              <em class="fa fa-envelope"></em>
+	              <span class="item-text">Contact Us</span>
+	            </a>
+	          </li>
+	          <li class="{eq name=':request()->controller()' value='Job'}active{/eq}">
+	            <a href="/admin/job" title="jobs" data-toggle="" class="no-submenu">
+	              <em class="fa fa-comment"></em>
+	              <span class="item-text">Jobs</span>
+	            </a>
+	          </li>
+	          <li class="{eq name=':request()->controller()' value='Facility'}active{/eq}">
+	            <a href="/admin/facility" title="facilities" data-toggle="" class="no-submenu">
+	              <em class="fa fa-microchip"></em>
+	              <span class="item-text">Facilities</span>
+	            </a>
+	          </li>
+	          <li class="{eq name=':request()->controller()' value='Solution'}active{/eq}">
+	            <a href="/admin/solution" title="solutions" data-toggle="" class="no-submenu">
+	              <em class="fa fa-list-alt"></em>
+	              <span class="item-text">Solutions</span>
+	            </a>
+	          </li>
+	        </ul>
+	        <!-- END SubMenu item-->
+	      </li>{/in}
+	      <!-- END Menu-->
+	    </ul>
+	  </nav>
+	  <!-- END Sidebar (left)-->
+	</aside>
