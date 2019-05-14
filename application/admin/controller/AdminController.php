@@ -34,7 +34,6 @@ class AdminController extends BaseController
     public function logout(){
         /*session('userid',null);
         session('username',null);*/
-
         // 清除think作用域
         session(null, 'think');
 
